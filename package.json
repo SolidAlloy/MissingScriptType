@@ -1,0 +1,18 @@
+{
+  "name": "com.solidalloy.missing-script-type",
+  "version": "1.0.0",
+  "displayName": "Missing Script Type",
+  "description": "Find the missing script more easily.",
+  "keywords": [
+    "missing",
+    "script",
+    "type",
+	"component",
+	"monobehaviour"
+  ],
+  "author": {
+    "name": "SolidAlloy",
+    "url": "https://github.com/SolidAlloy/"
+  },
+  "type": "tool"
+}

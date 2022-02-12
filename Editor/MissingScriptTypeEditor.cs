@@ -17,7 +17,7 @@
         Editor
 #endif
     {
-        private MissingScriptTypeUtility _missingScriptUtility;
+        protected MissingScriptTypeUtility _missingScriptUtility;
         
 #if ODIN_INSPECTOR && ! DISABLE_MISSING_SCRIPT_EDITOR
         [DidReloadScripts(0)]
@@ -50,8 +50,6 @@
 
         public override void OnInspectorGUI()
         {
-            serializedObject.Update();
-
             if (_missingScriptUtility == null)
             {
                base.OnInspectorGUI();

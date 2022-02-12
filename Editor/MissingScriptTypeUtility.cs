@@ -53,6 +53,10 @@
 
         public void Draw()
         {
+            if (_serializedObject == null)
+                return;
+            
+            _serializedObject.Update();
             bool previousGUIEnabled = GUI.enabled;
             GUI.enabled = true;
 

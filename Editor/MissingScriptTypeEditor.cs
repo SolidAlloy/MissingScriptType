@@ -1,6 +1,8 @@
 ﻿namespace MissingScriptType.Editor
 {
     using System.Reflection;
+    using SolidUtilities.Editor;
+    using UnityEditor;
     using UnityEditor.Callbacks;
     using UnityEngine;
 
@@ -38,14 +40,32 @@
 #if ODIN_INSPECTOR
             base.OnEnable();
 #endif
-            _missingScriptUtility = new MissingScriptTypeUtility(serializedObject);
+
+            try
+            {
+                _missingScriptUtility = new MissingScriptTypeUtility(serializedObject);
+            }
+            catch { } // SerializedObjectNotCreatableException is internal, so we can't catch it directly.
         }
 
         public override void OnInspectorGUI()
         {
-            Debug.Log("missing script type");
-            base.OnInspectorGUI();
-            _missingScriptUtility.OnInspectorGUI();
+            serializedObject.Update();
+
+            if (_missingScriptUtility == null)
+            {
+               base.OnInspectorGUI();
+               return;
+            }
+            
+            if (_missingScriptUtility.IsScriptLoaded())
+            {
+                base.OnInspectorGUI();
+            }
+            else
+            {
+                _missingScriptUtility.Draw();
+            }
         }
     }
 }

@@ -125,7 +125,7 @@
         private static Type GetType(string assemblyQualifiedTypeName)
         {
             // Transform generic type into generic type definition.
-            if (assemblyQualifiedTypeName.Contains('<'))
+            if (assemblyQualifiedTypeName.Contains("<"))
             {
                 string genericArgsPart = assemblyQualifiedTypeName.GetSubstringAfter('<').GetSubstringBefore('>');
                 int argsCount = genericArgsPart.CountChars(',') + 1;

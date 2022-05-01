@@ -119,7 +119,7 @@
             _foundType = GetType(assemblyQualifiedTypeName);
 
             if (_foundType != null)
-                _foundMonoScript = AssetSearcher.GetMonoScriptFromType(_foundType);
+                _foundMonoScript = AssetHelper.GetMonoScriptFromType(_foundType);
         }
 
         private static Type GetType(string assemblyQualifiedTypeName)

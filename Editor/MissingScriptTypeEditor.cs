@@ -9,7 +9,7 @@
 #if ODIN_INSPECTOR
     using Sirenix.OdinInspector.Editor;
 #endif
-    
+
     public class MissingScriptTypeEditor :
 #if ODIN_INSPECTOR
         OdinEditor
@@ -18,7 +18,7 @@
 #endif
     {
         protected MissingScriptTypeUtility _missingScriptUtility;
-        
+
 #if ODIN_INSPECTOR && ! DISABLE_MISSING_SCRIPT_EDITOR
         [DidReloadScripts(0)]
         private static void OnScriptsReload()
@@ -55,7 +55,7 @@
                base.OnInspectorGUI();
                return;
             }
-            
+
             if (_missingScriptUtility.IsScriptLoaded())
             {
                 base.OnInspectorGUI();

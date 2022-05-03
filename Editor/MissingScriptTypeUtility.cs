@@ -18,14 +18,14 @@
 
         private GUIStyle _wrappedText;
         private GUIStyle WrappedText => _wrappedText ??= new GUIStyle(EditorStyles.textField) { wordWrap = true };
-        
+
         public MissingScriptTypeUtility(SerializedObject serializedObject)
         {
             _serializedObject = serializedObject;
 
             if (_serializedObject == null)
                 return;
-            
+
             _scriptProperty = _serializedObject.FindProperty("m_Script");
             _editorClassIdProperty = _serializedObject.FindProperty("m_EditorClassIdentifier");
 
@@ -38,7 +38,7 @@
                 type = type.BaseType;
 
             _editorClassIdProperty.stringValue = GetTypeName(type);
-            serializedObject.ApplyModifiedProperties(); 
+            serializedObject.ApplyModifiedProperties();
         }
 
         public bool IsScriptLoaded()
@@ -55,7 +55,7 @@
         {
             if (_serializedObject == null)
                 return;
-            
+
             _serializedObject.Update();
             bool previousGUIEnabled = GUI.enabled;
             GUI.enabled = true;
@@ -73,15 +73,15 @@
             using (new EditorGUILayout.HorizontalScope())
             {
                 EditorGUILayout.LabelField("Last Known Type", GUILayout.Width(110f));
-            
+
                 using (new EditorGUI.DisabledScope(true))
                 {
                     EditorGUILayout.TextArea(GetTypeRepresentation(_editorClassIdProperty.stringValue), WrappedText);
-                }                
+                }
             }
-            
+
             DrawFoundScript();
-            
+
             if (_serializedObject.ApplyModifiedProperties())
                 EditorHelper.ForceRebuildInspectors();
 
@@ -94,7 +94,7 @@
                 return;
 
             using var _ = new EditorGUILayout.HorizontalScope();
-            
+
             EditorGUILayout.LabelField("Found Matching Script", GUILayout.Width(145f));
 
             using (new EditorGUI.DisabledScope(true))
@@ -102,11 +102,11 @@
 
             if (_foundType.IsGenericTypeDefinition)
                 return;
-            
+
             if (GUILayout.Button("Set", GUILayout.Width(30f)))
                 _scriptProperty.objectReferenceValue = _foundMonoScript;
         }
-        
+
         private static void ShowScriptNotLoadedWarning()
         {
             var text = L10n.Tr(
@@ -153,7 +153,7 @@
             string typeName = (type.IsGenericType || type.IsGenericTypeDefinition)
                 ? TypeHelper.GetNiceNameOfGenericType(type, true)
                 : type.FullName;
-            
+
             return $"{typeName}, {type.Assembly.GetName().Name}";
         }
     }

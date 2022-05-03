@@ -4,11 +4,11 @@
     using UnitySettings = UnityEditor.SettingsManagement.Settings;
 
     public enum TypeRepresentation { Short, Full, FullAndAssembly }
-    
+
     public static class Settings
     {
         private const string PackageName = "com.solidalloy.missing-script-type";
-        
+
         private static UnitySettings _instance;
 
         private static UserSetting<TypeRepresentation> _typeRepresentation;

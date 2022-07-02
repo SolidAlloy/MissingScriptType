@@ -2,9 +2,9 @@
     "name": "MissingScriptType.Editor",
     "rootNamespace": "MissingScriptType.Editor",
     "references": [
-        "GUID:b73ef07971851e14fa74ae50b76f8225",
-        "GUID:49818357e697641afb75d2f8acaf1861",
-        "GUID:48d58eaab94e1de429344393b7653b1f"
+        "SolidUtilities",
+        "Unity.Settings.Editor",
+        "SolidUtilities.Editor"
     ],
     "includePlatforms": [
         "Editor"

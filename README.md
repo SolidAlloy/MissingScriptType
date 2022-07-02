@@ -5,15 +5,13 @@ Find missing scripts in your components and ScriptableObjects more easily by kno
 
 ## Installation
 
-### OpenUPM
+### Install with OpenUPM
 
 Once you have the [OpenUPM cli](https://github.com/openupm/openupm-cli#installation), run the following command:
 
-```
-openupm install com.solidalloy.missing-script-type
-```
+```openupm install com.solidalloy.missing-script-type```
 
-Or if you don't have it, add the scoped registry to manifest.json with the desired dependency semantic version:
+Or if you don't have it, add the scoped registry to manifest.json with the desired dependency semantic version: 
 
 ```json
   "scopedRegistries": [
@@ -21,26 +19,32 @@ Or if you don't have it, add the scoped registry to manifest.json with the desir
       "name": "package.openupm.com",
       "url": "https://package.openupm.com",
       "scopes": [
-        "com.solidalloy.util",
-        "com.solidalloy.missing-script-type",
+        "com.solidalloy",
         "com.openupm"
       ]
     }
   ],
   "dependencies": {
-    "com.solidalloy.missing-script-type": "1.0.0"
+    "com.solidalloy.missing-script-type": "1.0.1"
   },
+
 ```
 
-### Git URL
+### Install via Package Manager
 
-To install the package through Package Manager, do the following:
+Project supports Unity Package Manager. To install the project as a Git package do the following:
 
-1. In Unity, open **Window** -> **Package Manager**.
-2. Press the **+** button, choose "**Add package from git URL...**"
-3. Enter "https://github.com/SolidAlloy/SolidUtilities.git" and press **Add**.
-4. Do the same with MissingScriptType:
-   - https://github.com/SolidAlloy/MissingScriptType.git
+1. In Unity, open **Project Settings** -> **Package Manager**.
+2. Add a new scoped registry with the following details:
+   - **Name**: package.openupm.com
+   - **URL**: https://package.openupm.com
+   - Scope(s):
+     - com.openupm
+     - com.solidalloy
+3. Hit **Apply**.
+4. Go to **Window** -> **Package Manager**.
+5. Press the **+** button, *Add package from git URL*.
+6. Enter **com.solidalloy.missing-script-type**, press **Add**.
 
 ## Quick Start
 

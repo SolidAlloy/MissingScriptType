@@ -4,7 +4,7 @@
   "displayName": "Missing Script Type",
   "description": "Find the missing script more easily.",
   "dependencies": {
-    "com.solidalloy.util": "1.36.2",
+    "com.solidalloy.util": "1.40.0",
     "com.unity.settings-manager": "1.0.3"
   },
   "keywords": [

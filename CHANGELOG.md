@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/SolidAlloy/MissingScriptType/compare/1.0.1...1.1.0) (2022-07-24)
+
+
+### Features
+
+* Switched from GUID to assembly names in asmdefs ([b70a2b2](https://github.com/SolidAlloy/MissingScriptType/commit/b70a2b21c7ef454a0bda5f9d6ed0a1df961e3a1b))
+
 ## [1.0.1](https://github.com/SolidAlloy/MissingScriptType/compare/1.0.0...1.0.1) (2022-03-15)
 
 
